@@ -115,11 +115,73 @@ echo "<BR>";
 
 foreach ($z as $k=>$v){
     //echo $k,':',$v,'<BR>';
-    echo "$z[$k]=$v","<BR>";
+    echo "\"$z[$k]\"=$v"."<BR>";
 }
+
+
+$t = date("H");
+if ( $t<20)
+{
+    echo "have a good day!<BR>";
+
+}
+else {
+
+    echo "have a good night!<BR>";
+}
+
+$z = 1;
+echo ++$z ."<BR>";
+echo $z ."<BR>";
+$x=1;
+
+while($x<=5) {
+    echo "这个数字是：$x <br>";
+    $x++;
+}
+
+echo "<BR>";
+
+$x=1;
+
+do {
+    echo "这个数字是：$x <br>";
+    $x++;
+} while ($x<=5);
+
+
+
+echo "<BR>";
+
+echo $_SERVER['PHP_SELF'];
+echo "<br>";
+echo $_SERVER['SERVER_NAME'];
+echo "<br>";
+echo $_SERVER['HTTP_HOST'];
+echo "<br>";
+//echo $_SERVER['HTTP_REFERER'];
+echo "<br>";
+echo $_SERVER['HTTP_USER_AGENT'];
+echo "<br>";
+echo $_SERVER['SCRIPT_NAME'];
+echo "<BR>";
+echo $_SERVER['REMOTE_PORT'];
+
+
+
+
 
 ?>
 
+<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+Name: <input type="text" name="t">
+<input type="submit">
+</form>
+
+<?php
+echo "<BR>";
+echo $_REQUEST["t"];
+?>
 
 
 
