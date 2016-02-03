@@ -173,15 +173,43 @@ echo $_SERVER['REMOTE_PORT'];
 
 ?>
 
-<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
-Name: <input type="text" name="t">
-<input type="submit">
-</form>
+
 
 <?php
+$name ="";
+$tErr = "";
+function  validate($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data= htmlspecialchars($data);
+    return $data;
+}
 echo "<BR>";
-echo $_REQUEST["t"];
+if (!empty($_POST["t"]))
+{
+    $name = validate($_POST["t"]);
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+        $tErr = "只允许字母和空格！";
+    }
+
+}
+
 ?>
 
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+Name: <input type="text" name="t" value="<?php echo $name;?>">
+<input type="submit" >
+<div ><?php echo $tErr?></div>
+</form>
 
 
+<?php
+date_default_timezone_set("Asia/Shanghai");
+echo "当前时间是 " . date("h:i:sa");
+
+echo "<BR>";
+
+$d = mktime(17,23,59,02,03,2016);
+echo "creation time is :".date("Y-m-d H:i:sa",$d);
+?>
