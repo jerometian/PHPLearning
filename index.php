@@ -213,3 +213,12 @@ echo "<BR>";
 $d = mktime(17,23,59,02,03,2016);
 echo "creation time is :".date("Y-m-d H:i:sa",$d);
 ?>
+
+
+
+
+<?php
+ include 'footer.php';
+ echo $text;
+?>
+
