@@ -215,6 +215,39 @@ echo "creation time is :".date("Y-m-d H:i:sa",$d);
 ?>
 
 
+<?php
+    echo "<BR>";
+    echo readfile("test.txt");
+    echo "<BR>";
+    echo "fopen start.....<BR>";
+    $myfile = fopen("test.txt","r") or die("unable top open the file");
+    echo fread($myfile,filesize("test.txt"));
+    fclose($myfile);
+
+    echo "<BR><BR>";
+
+    $myfile = fopen("test.txt","r") or die("unable top open the file");
+    echo "fgets start...∂¡»°µ•––demo<BR>";
+    while (!feof($myfile)){
+
+        echo fgets($myfile)."<BR>";
+    }
+
+
+    fclose($myfile);
+
+
+   $myfile =fopen("test1.txt", "w") or
+    die("Unable to open file!");
+
+    $txt = "Bill Gates \n";
+    fwrite($myfile, $txt);
+    $txt = "Steve Jobs\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
+
+?>
+
 
 
 <?php
